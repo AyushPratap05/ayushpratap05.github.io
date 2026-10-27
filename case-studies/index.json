@@ -1,0 +1,245 @@
+[
+  {
+    "slug": "Refund-Window",
+    "title": "A 24-hour refund window for clothing returns",
+    "tag": "Product concept + Prototype",
+    "summary": "A return policy that stops use-and-return abuse without punishing honest customers.",
+    "deck": "",
+    "links": [],
+    "metrics": [
+      {
+        "value": "24h",
+        "label": "Refund window"
+      },
+      {
+        "value": "Exchange",
+        "label": "Only after 24h"
+      },
+      {
+        "value": "Defects",
+        "label": "Always refundable"
+      }
+    ],
+    "image": "",
+    "story": {
+      "intro": "Clothing returns are being abused: some people wear an item and send it back for a full refund. Here is the problem, and how a 24-hour refund window fixes it.",
+      "problems": [
+        {
+          "title": "Use and return",
+          "text": "Customers wear an outfit to an event, then return it for a full refund."
+        },
+        {
+          "title": "Sellers carry the loss",
+          "text": "A worn item can’t be resold, so the seller takes the hit."
+        },
+        {
+          "title": "Honest customers pay for it",
+          "text": "Real problems, like a defect or the wrong item, get mixed up with abuse."
+        },
+        {
+          "title": "No clock",
+          "text": "Nothing tells customers how long they have, so returns can come at any time."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "24-hour refund window",
+          "text": "Refund or exchange is available for 24 hours after delivery, shown as a live countdown on the order.",
+          "demo": "fresh"
+        },
+        {
+          "title": "Exchange only after 24 hours",
+          "text": "Once the window closes, only an exchange is possible. No refund and no store credit.",
+          "demo": "expired"
+        },
+        {
+          "title": "Verified defect exception",
+          "text": "Damaged, defective or wrong items stay refundable at any time, once the customer adds photos.",
+          "demo": "defect"
+        },
+        {
+          "title": "Clear return reasons",
+          "text": "The return flow asks why, so the right rule applies and the seller learns what goes wrong.",
+          "demo": "reasons"
+        }
+      ],
+      "scene": "tracker",
+      "stepMs": [
+        3500,
+        3500,
+        5500,
+        4500
+      ]
+    },
+    "mini": "ret"
+  },
+  {
+    "slug": "ai-github-search",
+    "title": "AI GitHub Search: fresh, relevant repositories",
+    "tag": "PRD and user research",
+    "summary": "AI search finds relevant repositories that are years out of date. I defined the problem and designed freshness-aware ranking.",
+    "demo": "",
+    "deck": "",
+    "links": [
+      {
+        "label": "Read the full PRD (Word)",
+        "url": "case-studies/ai-github-search/PRD.docx"
+      }
+    ],
+    "metrics": [
+      {
+        "value": "3",
+        "label": "User personas"
+      },
+      {
+        "value": "7",
+        "label": "Success metrics"
+      },
+      {
+        "value": "A/B",
+        "label": "Ranking test"
+      }
+    ],
+    "image": "",
+    "story": {
+      "panel": "gh",
+      "intro": "AI search finds repositories that match your query, but many are years out of date. This case study adds freshness to the ranking, so people see repos that are still alive.",
+      "problemSub": "What happens when search only looks at relevance and stars.",
+      "solutionSub": "Tap a step to see it in the search on the right.",
+      "capProblem": "Search that ranks by relevance and stars only.",
+      "capSolution": "Tap each step to see how the results change.",
+      "problems": [
+        {
+          "title": "Relevant but outdated",
+          "text": "Results match the query, but haven’t been updated in years."
+        },
+        {
+          "title": "Stars hide the age",
+          "text": "A high star count makes an old project look like a safe pick."
+        },
+        {
+          "title": "Manual checking",
+          "text": "Users open several repos to check commits, releases and issues by hand."
+        },
+        {
+          "title": "Beginners can’t tell",
+          "text": "Students and beginners can’t easily see whether a repo is still active."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Search in plain language",
+          "text": "Describe what you need. Semantic search finds repos by meaning, not just keywords.",
+          "demo": "query"
+        },
+        {
+          "title": "Rank by relevance and freshness",
+          "text": "A simple, explainable score: relevance, language and requirement match, plus a maintenance signal.",
+          "demo": "rerank"
+        },
+        {
+          "title": "Say why it was picked",
+          "text": "Each result shows its reason, like a strong match and a recent update.",
+          "demo": "why"
+        },
+        {
+          "title": "Filter by recency",
+          "text": "Choose repos updated within 6 months, 1 year or 2 years.",
+          "demo": "filter"
+        }
+      ],
+      "stepMs": [
+        4200,
+        3500,
+        3800,
+        3500
+      ]
+    },
+    "mini": "gh"
+  },
+  {
+    "slug": "echoshield",
+    "title": "EchoShield: detecting AI voice deepfakes",
+    "tag": "Team lead, product",
+    "summary": "A web platform that classifies audio as real or AI-generated, with a confidence score, in under a second.",
+    "demo": "",
+    "deck": "",
+    "links": [
+      {
+        "label": "Visit echoshield.in",
+        "url": "https://echoshield.in"
+      }
+    ],
+    "metrics": [
+      {
+        "value": "93.8%",
+        "label": "Model accuracy"
+      },
+      {
+        "value": "<1s",
+        "label": "Avg. processing time"
+      },
+      {
+        "value": "4",
+        "label": "Team members"
+      }
+    ],
+    "image": "",
+    "story": {
+      "panel": "echo",
+      "url": "https://echoshield.in",
+      "intro": "AI voice cloning makes fake audio sound real, and people can’t hear the difference. EchoShield is a web platform that checks whether an audio clip is real or AI-generated.",
+      "problemSub": "Why AI voice cloning is a problem.",
+      "solutionSub": "Tap a step to see it on the right.",
+      "capProblem": "A cloned voice can sound real.",
+      "capSolution": "Tap each step. Click the title or the button to open the live site.",
+      "problems": [
+        {
+          "title": "Cloned voices are used for fraud",
+          "text": "AI voice cloning is misused for fraud, impersonation and misinformation."
+        },
+        {
+          "title": "People can’t hear the difference",
+          "text": "The manipulation is so subtle that humans struggle to tell real voices from AI-generated ones."
+        },
+        {
+          "title": "No quick way to check",
+          "text": "Existing solutions lack real-time, user-friendly verification."
+        },
+        {
+          "title": "Research doesn’t reach users",
+          "text": "Models struggle with unseen speakers and tools, mostly run offline, and rarely explain their predictions in an easy web interface."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Upload or record audio",
+          "text": "Users add a file or record live in the browser. The audio is cleaned and standardized before analysis.",
+          "demo": "input"
+        },
+        {
+          "title": "BiLSTM detection on MFCC features",
+          "text": "A BiLSTM neural network trained on the SceneFake dataset reads MFCC features and classifies the audio as real or fake.",
+          "demo": "features"
+        },
+        {
+          "title": "A confidence score in under a second",
+          "text": "Results show real or fake with a confidence score. The model reached 93.8% accuracy, with an average processing time under 1 second.",
+          "demo": "result"
+        },
+        {
+          "title": "Transcription and an AI assistant",
+          "text": "Speech-to-text and a context-aware chatbot help users understand the result, and learn pages explain deepfakes.",
+          "demo": "assistant"
+        }
+      ],
+      "stepMs": [
+        3600,
+        3600,
+        3600,
+        3600
+      ]
+    },
+    "mini": "wave"
+  }
+]

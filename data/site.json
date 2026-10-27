@@ -1,0 +1,83 @@
+{
+  "name": "Ayush Pratap Singh",
+  "role": "Aspiring Product Manager",
+  "headline": "Hi, I'm Ayush.",
+  "intro": "I'm a computer science graduate with a product-first mindset. I write PRDs, run user research and build prototypes to test my ideas, using AI tools to move faster. Below are the problems I've worked on.",
+  "about": "At IIT Ropar I owned an Android real-time data monitoring app from PRD to a tested release, fixing 5+ critical bugs and cutting the crash rate by 30%. I led a team of four on EchoShield, an AI voice deepfake detector, and I'm now writing product case studies on real problems. I graduated in 2026 with a B.Tech in Computer Science and Engineering from IMS Engineering College, Ghaziabad.",
+  "skills": [
+    "PRD writing",
+    "User research",
+    "User stories",
+    "Competitive analysis",
+    "Workflow design",
+    "Prompt engineering",
+    "SQL",
+    "Python"
+  ],
+  "links": {
+    "github": "https://github.com/AyushPratap05",
+    "linkedin": "https://www.linkedin.com/in/ayush-pratap-singh-rajawat",
+    "email": "ayushrajawat2005@gmail.com",
+    "resume": "assets/ayush_pratap_product_AI.pdf"
+  },
+  "status": "Open to internships and fresher roles",
+  "stats": [
+    {
+      "value": "30%",
+      "label": "lower crash rate at IIT Ropar"
+    },
+    {
+      "value": "5+",
+      "label": "critical bugs fixed"
+    },
+    {
+      "value": "4",
+      "label": "people led on EchoShield"
+    },
+    {
+      "value": "20+",
+      "label": "students team managed as event head"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Summer Intern, Software Development Training (RMML)",
+      "org": "IIT Ropar, Punjab",
+      "when": "Jun 2025 to Jul 2025",
+      "points": [
+        "Owned the product lifecycle of an interactive Android platform for real-time data monitoring, from requirements and PRD to a tested app.",
+        "Found and fixed 5+ critical bugs through structured testing and root-cause analysis, cutting the crash rate by 30%."
+      ]
+    },
+    {
+      "role": "Management Head, Elite E-Gaming",
+      "org": "College tech fest",
+      "when": "",
+      "points": [
+        "Managed 20+ students and led the highest-participation event of the fest.",
+        "Coordinated logistics, timelines and communication for 3+ events with 100+ participants."
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Summer Internship, Software Development Training (RMML)",
+      "issuer": "IIT Ropar",
+      "year": "2025",
+      "url": "assets/certificates/InternshipCertificateAyushPratapSingh.pdf"
+    },
+    {
+      "name": "[Introduction to Cloud Computing]",
+      "issuer": "[Coursera]",
+      "year": "[2025]",
+      "url": "assets/certificates/cloudcomput.pdf"
+    },
+    {
+      "name": "[Certificate name]",
+      "issuer": "[Issuer]",
+      "year": "[Year]",
+      "url": "assets/certificates/certficate1.pdf"
+    }
+  ],
+  "formEndpoint": ""
+}
