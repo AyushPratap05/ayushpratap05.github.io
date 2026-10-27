@@ -71,12 +71,6 @@
       "issuer": "[Coursera]",
       "year": "[2025]",
       "url": "assets/certificates/cloudcomput.pdf"
-    },
-    {
-      "name": "[Certificate name]",
-      "issuer": "[Issuer]",
-      "year": "[Year]",
-      "url": "assets/certificates/certficate1.pdf"
     }
   ],
   "formEndpoint": "https://formspree.io/f/xrpppdwr"
