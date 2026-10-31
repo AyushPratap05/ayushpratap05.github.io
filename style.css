@@ -193,3 +193,19 @@ nav ul{gap:16px}.metrics{flex-wrap:wrap}.case iframe{height:380px}}
 .mmret.x .bar i{background:#6CB6FF}.mmret.x .r b{color:#1D5FB4}
 
 .cert a{display:inline-block;margin-top:12px;color:var(--ac);font-weight:600;font-size:14px}
+
+.deckbox{padding:24px 0 8px}.deckbox h2{font-size:28px;margin:0 0 14px}.deckbox iframe{width:100%;height:560px;border:1px solid var(--line);border-radius:16px;background:var(--tile)}.deckbox p{margin:14px 0 0}
+@media(max-width:860px){.deckbox iframe{height:360px}}
+
+.tile.wide{grid-column:span 2}
+.dctl button.on{border-color:var(--ac);color:var(--ac)}
+.mmhud{border-radius:12px;overflow:hidden;background:#fff;color:#161616;font:13px/1.3 "Space Grotesk",system-ui,sans-serif}
+.mmhud .top{display:flex;justify-content:space-between;align-items:center;background:#C8202F;color:#fff;padding:9px 12px;font-size:12px}
+.mmhud .top b{font:700 22px "Space Grotesk",sans-serif;letter-spacing:-.5px}
+.mmhud .rowz{padding:2px 12px 6px}
+.mmhud .pr{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #ECE7DF}
+.mmhud .pr:last-child{border-bottom:0}
+.mmhud .pr span{flex:1;font-weight:700}
+.mmhud .pr em{font-style:normal;color:#595959}
+.mmhud .pr i{font-style:normal;font-size:11.5px;min-width:96px;text-align:right;color:#8A8A8A}
+.mmhud .pr i.ok{color:#1A7F43;font-weight:700}.mmhud .pr i.bad{color:#C8202F;font-weight:700}
