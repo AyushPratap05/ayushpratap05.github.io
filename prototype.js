@@ -43,14 +43,16 @@ function mountPrototype(host){
   else if(k==='restart'){reset(DAY-4000);show('v1')}
   draw()}};
 }
-function mountProblem(el){
- const steps=['Orders three outfits for a weekend event.','Wears one of them to the event.','Taps Return and picks “Changed my mind”.','Gets a full refund. The seller gets back a worn item.'];
- let i=0;
- const draw=()=>{el.innerHTML=`<div class="pb"><div class="pb-sb"><span>9:41</span><span>5G &nbsp;▂▄▆ &nbsp;🔋</span></div><div class="pb-h"><b>Returns</b></div>
- <div class="pb-policy"><small>EXAMPLE OF A LAX POLICY</small><b>Easy returns, any time</b><p>Full refund. No questions asked. No time limit.</p></div>
- <div class="pb-t">What some people do</div><ol class="pb-steps">${steps.slice(0,i+1).map((s,k)=>`<li class="${k===i?'now':''}"><span>${k+1}</span>${s}</li>`).join('')}</ol>
- ${i<steps.length-1?'<button class="pb-b" data-pb="next">Next step →</button>':'<div class="pb-loss"><b>The seller carries the loss.</b> A worn item can’t be resold, and honest customers end up paying for it.</div><button class="pb-b ghost" data-pb="again">Replay</button>'}</div>`};
- el.addEventListener('click',(e)=>{const b=e.target.closest('[data-pb]');if(!b)return;i=b.dataset.pb==='next'?i+1:0;draw()});
+function mountProblem(el, cfg) {
+ const C = Object.assign({ head: 'Returns', tag: 'EXAMPLE OF A LAX POLICY', title: 'Easy returns, any time', text: 'Full refund. No questions asked. No time limit.', stepsTitle: 'What some people do',
+  steps: ['Orders three outfits for a weekend event.', 'Wears one of them to the event.', 'Taps Return and picks “Changed my mind”.', 'Gets a full refund. The seller gets back a worn item.'],
+  loss: '<b>The seller carries the loss.</b> A worn item can’t be resold, and honest customers end up paying for it.' }, cfg || {});
+ let i = 0;
+ const draw = () => { el.innerHTML = `<div class="pb"><div class="pb-sb"><span>9:41</span><span>5G &nbsp;▂▄▆ &nbsp;🔋</span></div><div class="pb-h"><b>${C.head}</b></div>
+ <div class="pb-policy"><small>${C.tag}</small><b>${C.title}</b><p>${C.text}</p></div>
+ <div class="pb-t">${C.stepsTitle}</div><ol class="pb-steps">${C.steps.slice(0, i + 1).map((s, k) => `<li class="${k === i ? 'now' : ''}"><span>${k + 1}</span>${s}</li>`).join('')}</ol>
+ ${i < C.steps.length - 1 ? '<button class="pb-b" data-pb="next">Next step →</button>' : `<div class="pb-loss">${C.loss}</div><button class="pb-b ghost" data-pb="again">Replay</button>`}</div>`; };
+ el.addEventListener('click', (e) => { const b = e.target.closest('[data-pb]'); if (!b) return; i = b.dataset.pb === 'next' ? i + 1 : 0; draw(); });
  draw();
 }
 
@@ -205,5 +207,127 @@ async function mountMiniRet2(el) {
   for (let k = 0; k <= 60; k++) { const s = Math.round(86400 * (1 - k / 60)); b.textContent = pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s % 3600 / 60)) + ':' + pad(s % 60); bar.style.width = (100 - k / 60 * 100) + '%'; await _sleep(70); }
   root.classList.add('x'); l.textContent = 'Window closed'; b.textContent = 'Exchange only'; bar.style.width = '100%';
   await _sleep(2400);
+ } while (!_still());
+}
+
+const HUD_CSS = ":host{--bg:#fff;--fg:#161616;--mut:#595959;--card:#F4F1EC;--line:#E0DAD2;--rt:#C8202F;--grn:#1A7F43;--pb:#161616;--pf:#fff;--brand:#C8202F;display:block;height:100%;color:var(--fg);font:16px/1.4 'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}*{box-sizing:border-box}.hs{position:relative;height:100%;background:var(--brand)}.sb{display:flex;position:absolute;top:0;left:0;right:0;height:44px;padding:14px 28px 0;justify-content:space-between;background:var(--brand);color:#fff;font-size:14px;font-weight:700;z-index:2;pointer-events:none}#app{height:100%;overflow-y:auto;padding-top:44px;display:flex;flex-direction:column;scrollbar-width:none}#app::-webkit-scrollbar{display:none}.top{color:#fff;padding:22px 22px 24px}.eyebrow{font-size:15px;font-weight:500}.mid{font-size:32px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin:6px 0 16px}.big{font-size:80px;font-weight:700;line-height:1;letter-spacing:-4px;margin:6px 0 10px}.sub{font-size:14px;margin-bottom:14px}\n.segs{display:flex;gap:8px}.segs span{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.35)}.segs .on{background:#fff}\n.sheet{flex:1 0 auto;background:var(--bg);border-radius:28px 28px 0 0;padding:22px 20px 40px}\nh3{margin:18px 0 8px;font-size:17px}\n.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:none;color:var(--fg);padding:8px 14px;border-radius:999px;font:500 14px \"Space Grotesk\",sans-serif}.chip.on{background:var(--pb);color:var(--pf);border-color:var(--pb)}\n.mut,small{color:var(--mut)}\n.row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.g{flex:1}\n.dot{width:14px;height:14px;border:2px solid;border-radius:3px;position:relative;flex:none}.dot:after{content:\"\";position:absolute;inset:2px;border-radius:50%;background:currentColor}.dot.v{color:var(--grn)}.dot.n{color:var(--rt)}\n.q{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--fg);font-size:18px}\n.card{background:var(--card);border-radius:16px;padding:14px;margin:10px 0}.warn{border:2px solid var(--rt)}\n.btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font:700 16px \"Space Grotesk\",sans-serif;min-height:48px}\n.btn.pri{background:var(--pb);border-color:var(--pb);color:var(--pf)}.btn.s{display:inline-block;width:auto;padding:8px 20px;margin:6px 0 0 8px;min-height:40px}.btn:disabled{opacity:.4}.btn.ol{color:var(--rt);border-color:var(--rt)}\n.lnk{background:none;border:0;color:var(--mut);text-decoration:underline;padding:10px 0;font:14px \"Space Grotesk\",sans-serif}\n.ok{color:var(--grn);font-weight:700}\ninput{width:100%;box-sizing:border-box;padding:13px;margin:5px 0;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--fg);font:16px \"Space Grotesk\",sans-serif}.err{color:var(--rt);font-size:13px;min-height:16px}.dim{opacity:.55}\n.stk{display:inline-block;border:3px dashed var(--fg);border-radius:10px;padding:8px 10px;margin:4px 6px 4px 0;font-size:13px;min-width:130px}.stk b{display:block}\n.bill div{display:flex;justify-content:space-between;padding:2px 0}\n.top{flex:none}\n\n.sheet{padding-bottom:56px}.tagp{background:var(--card);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}";
+
+function mountHuddle(host) {
+ const root = host.attachShadow({ mode: 'open' });
+ root.innerHTML = '<style>' + HUD_CSS + '</style><div class="hs"><div class="sb"><span>9:41</span><span>5G · 100%</span></div><div id="app"></div></div>';
+ const $ = (i) => root.getElementById(i);
+ function C() {}
+
+const MENU=[{id:"pbm",n:"Paneer Butter Masala",p:240,v:1},{id:"dal",n:"Dal Makhani",p:200,v:1},{id:"bc",n:"Butter Chicken",p:320,v:0},{id:"bir",n:"Chicken Biryani",p:280,v:0},{id:"naan",n:"Tandoori Naan",p:45,v:1},{id:"jr",n:"Jeera Rice",p:120,v:1}];
+const FEES=(40+8+15)*1.18;
+const SAMPLES=[{pbm:1,naan:2},{bc:1,naan:1},{dal:1,jr:1}];
+let S,BRAND="Zomato";const BRANDS={"Zomato":"#C8202F","Swiggy":"#B84E00","Zepto":"#5B2A9E","Blinkit":"#0C831F","Any app":"#1F2A44"};
+function init(){clearInterval(S&&S.timer);S={step:"join",mem:[],as:null,inn:{},cart:{},paid:{},left:60,timer:null,noshow:[],err:""}}
+init();
+const act=()=>S.mem.filter(m=>!m.out);
+const SHARE=()=>FEES/Math.max(1,act().length);
+const dish=k=>MENU.find(m=>m.id==k);
+const nm=id=>S.mem.find(m=>m.id==id).n;
+const mask=p=>p.slice(0,2)+"••••••"+p.slice(-2);
+const sub=id=>Object.entries(S.cart[id]||{}).reduce((s,[k,q])=>s+dish(k).p*q,0);
+const tot=id=>sub(id)*1.05+SHARE();
+const fm=x=>"₹"+x.toFixed(2);
+function addM(n,ph){const id="m"+S.mem.length+Date.now();S.mem.push({id,n,ph,out:0});S.cart[id]={};return id}
+function join(){const n=$("nm").value.trim(),ph=$("ph").value.trim();
+ if(!n){S.err="Enter your name.";return R()}if(!/^\d{10}$/.test(ph)){S.err="Enter a 10-digit phone number.";return R()}
+ S.err="";addM(n,ph);R()}
+function addDemo(){["Rahul","Priya"].forEach((n,i)=>{if(!S.mem.some(m=>m.n==n))addM(n,i?"9123456780":"9876543210")});R()}
+function add(id,k,d){const c=S.cart[id];c[k]=Math.max(0,(c[k]||0)+d);if(!c[k])delete c[k];R()}
+function leave(id){const m=S.mem.find(x=>x.id==id);m.out=1;S.cart[id]={};delete S.inn[id];R()}
+function rejoin(id){S.mem.find(x=>x.id==id).out=0;R()}
+function demo(){act().forEach((m,i)=>{S.cart[m.id]={...SAMPLES[i%3]};S.inn[m.id]=1});R()}
+function start(){S.step="pay";S.left=60;S.timer=setInterval(()=>{if(!host.isConnected){clearInterval(S.timer);return}S.left--;if(S.left<=0)expire();else R()},1000);R()}
+function pay(id){S.paid[id]=1;if(act().every(m=>S.paid[m.id])){clearInterval(S.timer);S.step="labels"}R()}
+function expire(){clearInterval(S.timer);S.noshow=act().filter(m=>!S.paid[m.id]);S.as=(act().find(m=>S.paid[m.id])||act()[0]).id;S.step="labels";R()}
+function vJoin(){
+ let h=`<div class="card"><small>Invite link (share it on WhatsApp)</small><br><b>huddle.link/x7Kp2</b></div><h3>${S.mem.length?"Join with your details":"Create the group as host"}</h3><p class="mut">In the real app your name and number come from your Zomato account. Here you type them.</p><input id="nm" placeholder="Name"><input id="ph" placeholder="Phone number" inputmode="numeric" maxlength="10"><div class="err">${S.err}</div><button class="btn pri" onclick="with(HUD){join()}">${S.mem.length?"Join group":"Create group"}</button>`;
+ if(S.mem.length)h+=`<h3>In this group</h3>`+S.mem.map((m,i)=>`<div class="row"><div class="g">${m.n}${i?"":" (host)"}<br><small>${mask(m.ph)}</small></div></div>`).join("");
+ return h+`<button class="lnk" onclick="with(HUD){addDemo()}">Add Rahul and Priya for the demo</button><button class="btn" ${S.mem.length>1?"":"disabled"} onclick="with(HUD){S.step='order';S.as=S.mem[0].id;R()}">Continue to order</button>`}
+function vOrder(){
+ const id=S.as,m=S.mem.find(x=>x.id==id),c=S.cart[id],lock=S.inn[id];
+ let h=`<div class="chips">${S.mem.map(x=>`<button class="chip ${x.id==id?"on":""} ${x.out?"dim":""}" onclick="with(HUD){S.as='${x.id}';R()}">${x.n}${x.out?" (left)":S.inn[x.id]?" ✓":""}</button>`).join("")}</div>`;
+ if(m.out)return h+`<div class="card">${m.n} left this group order and won’t pay anything. Fees are split among the ${act().length} people still in.</div><button class="btn" onclick="with(HUD){rejoin('${id}')}">Rejoin the group</button>`;
+ h+=`<p class="mut">Viewing as ${m.n}. Pick your own items.</p>`;
+ MENU.forEach(d=>{const q=c[d.id]||0;h+=`<div class="row"><span class="dot ${d.v?"v":"n"}"></span><div class="g">${d.n}<br><small>₹${d.p}</small></div>${lock?"":`<button class="q" onclick="with(HUD){add('${id}','${d.id}',-1)}">−</button>`}<b>${q}</b>${lock?"":`<button class="q" onclick="with(HUD){add('${id}','${d.id}',1)}">+</button>`}</div>`});
+ h+=`<div class="card">Your total: <b>${fm(tot(id))}</b><br><small>${fm(sub(id))} items + 5% GST + ${fm(SHARE())} equal share of delivery and fees (${act().length} people)</small></div>`;
+ h+=`<button class="btn" ${sub(id)==0||lock?"disabled":""} onclick="with(HUD){S.inn['${id}']=1;R()}">${lock?"You’re in ✓":"I’m in"}</button><button class="btn ol" onclick="with(HUD){leave('${id}')}">Not ordering? Leave group</button>`;
+ const ok=act().length>1&&act().every(x=>S.inn[x.id]);
+ return h+`<button class="btn pri" ${ok?"":"disabled"} onclick="with(HUD){start()}">Start pay timer</button><button class="lnk" onclick="with(HUD){demo()}">Fill sample orders for everyone in</button>`}
+function vPay(){
+ let h=`<p class="mut">The order is placed only when everyone has paid. Leaving is closed now, so skipping payment counts as a no-show. Demo timer is 60 seconds.</p>`;
+ act().forEach(m=>{h+=`<div class="card"><b>${m.n}</b> <small>${mask(m.ph)}</small> ${S.paid[m.id]?'<span class="ok">Paid ✓</span>':""}<br><small>Items ${fm(sub(m.id))} · GST ${fm(sub(m.id)*.05)} · Shared fees ${fm(SHARE())}</small><br><b>${fm(tot(m.id))}</b>${S.paid[m.id]?"":`<button class="btn s" onclick="with(HUD){pay('${m.id}')}">Pay</button>`}</div>`});
+ return h+`<button class="lnk" onclick="with(HUD){expire()}">Skip ahead: let the timer run out</button>`}
+function vMissed(id){const cl=S.fp&&S.fp[id];return `<div class="card warn"><b>You missed the pay window</b><p class="mut">The order went ahead without your items, so nothing else is charged. You owe ${fm(SHARE())} for your share of delivery and fees. It is saved to your account and added to your next order.</p></div>${cl?'<p class="ok">Fee paid ✓</p>':`<button class="btn pri" onclick="with(HUD){S.fp=S.fp||{};S.fp['${id}']=1;R()}">Pay ${fm(SHARE())} now</button>`}`}
+function vLabels(){
+ const ps=act().filter(m=>S.paid[m.id]);
+ if(!ps.length)return `<div class="card warn">Nobody paid in time, so the order was cancelled. Each member owes ${fm(SHARE())} in shared charges on their next order.</div><button class="btn" onclick="with(HUD){init();R()}">Start over</button>`;
+ if(!act().some(m=>m.id==S.as))S.as=act()[0].id;
+ let h=`<div class="chips">${act().map(m=>`<button class="chip ${m.id==S.as?"on":""}" onclick="with(HUD){S.as='${m.id}';R()}">${m.n}${S.paid[m.id]?"":" (missed)"}</button>`).join("")}</div><p class="mut">Viewing as ${nm(S.as)}.</p>`;
+ if(!S.paid[S.as])return h+vMissed(S.as);
+ const id=S.as,it=sub(id);
+ h+=`<h3>Your bill</h3><div class="card bill">${Object.entries(S.cart[id]).map(([k,q])=>`<div><span>${dish(k).n}${q>1?" ×"+q:""}</span><span>${fm(dish(k).p*q)}</span></div>`).join("")}<div><span>GST on items (5%)</span><span>${fm(it*.05)}</span></div><div><span>Your share of delivery and fees</span><span>${fm(SHARE())}</span></div><div><b>Paid</b><b>${fm(tot(id))}</b></div></div><p class="ok">Order confirmed. Your items are in the group order.</p>`;
+ return h+`<button class="btn pri" onclick="with(HUD){S.step='rest';R()}">See what the restaurant received</button><button class="btn" onclick="with(HUD){init();R()}">Start over</button>`}
+function vRest(){
+ const ps=act().filter(m=>S.paid[m.id]),rows=[];
+ ps.forEach(m=>Object.entries(S.cart[m.id]).forEach(([k,q])=>rows.push({m,d:dish(k),q})));
+ const it=ps.reduce((s,m)=>s+sub(m.id),0),n=rows.reduce((s,r)=>s+r.q,0);
+ let h=`<div class="card"><b>New order #x7Kp2</b><br><small>Group order · ${ps.length} people · ${n} items · paid in full</small></div><h3>Items</h3>`;
+ rows.forEach(r=>{h+=`<div class="row"><span class="dot ${r.d.v?"v":"n"}"></span><div class="g">${r.d.n}${r.q>1?" ×"+r.q:""}</div><span class="tagp">${r.m.n}</span></div>`});
+ h+=`<div class="card bill"><div><span>Items</span><span>${fm(it)}</span></div><div><span>GST on items (5%)</span><span>${fm(it*.05)}</span></div><div><span>Delivery, platform, packaging + GST</span><span>${fm(FEES)}</span></div><div><b>Order total</b><b>${fm(it*1.05+FEES)}</b></div></div><h3>Stickers to print and stick</h3>`;
+ rows.forEach(r=>{h+=`<div class="stk"><span class="dot ${r.d.v?"v":"n"}" style="display:inline-block"></span> <small>${r.d.v?"VEG":"NON-VEG"}</small><b>${r.d.n}${r.q>1?" ×"+r.q:""}</b>${r.m.n}</div>`});
+ return h+`<button class="btn" onclick="with(HUD){S.step='labels';R()}">Back to customer view</button>`}
+function T(x){return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0")}
+function R(){
+ host.style.setProperty("--brand",BRANDS[BRAND]);
+ const keys=["join","order","pay","labels","rest"],i=keys.indexOf(S.step);
+ const H={join:["Huddle on "+BRAND,"Join the huddle"],order:["Step 2 of 4","Pick your own food"],pay:["Time left to pay",""],labels:["Order placed","Your bill"],rest:["Restaurant view","Order received"]}[S.step];
+ const n=act().filter(m=>S.paid[m.id]).length;
+ const big=S.step=="pay"?`<div class="big">${T(S.left)}</div><div class="sub">${n} of ${act().length} paid. The order goes through when all pay.</div>`:`<div class="mid">${H[1]}</div>`;
+ $("app").innerHTML=`<div class="top"><div class="eyebrow">${H[0]}</div>${big}<div class="segs">${keys.map((k,j)=>`<span class="${j<=i?"on":""}"></span>`).join("")}</div></div><div class="sheet">`+(S.step=="join"?vJoin():S.step=="order"?vOrder():S.step=="pay"?vPay():S.step=="rest"?vRest():vLabels())+`</div>`;C()}
+function setup(){if(S.step=="labels"||S.step=="rest")init();if(S.step=="pay")return;if(!S.mem.length)addM("You","9812345670");addDemo();demo();S.step="order";S.as=S.mem[0].id;R()}
+function go1(){setup()}
+function go2(){setup();if(S.step!="pay")start()}
+function go3(){go2();S.left=10;R()}
+function go5(){go2();act().forEach(m=>pay(m.id));S.step="rest";R()}
+function go4(){go2();const a=act();pay(a[0].id);pay(a[2].id);expire()}
+function setBrand(b){BRAND=b;R()}
+function setTheme(){}
+
+ window.HUD = { get S() { return S; }, R, init, join, addDemo, add, leave, rejoin, demo, start, pay, expire, go1, go2, go3, go4, go5, setBrand };
+ let seq = 0;
+ const later = (ms, fn) => { const my = seq; setTimeout(() => { if (my === seq && host.isConnected) fn(); }, ms); };
+ const top = () => { const a = $('app'); if (a) a.scrollTop = 0; };
+ R();
+ return {
+  brand(b) { BRAND = b; R(); },
+  demo(k) {
+   seq++;
+   init();
+   if (k === 'join') { R(); later(1000, () => { addM('You', '9812345670'); R(); }); later(2200, () => { addDemo(); R(); }); }
+   else if (k === 'order') { go1(); }
+   else if (k === 'timer') { go2(); later(1800, () => pay(act()[0].id)); later(3400, () => pay(act()[1].id)); }
+   else if (k === 'noshow') { go4(); later(2200, () => { const m = S.noshow[0]; if (m) { S.as = m.id; R(); } }); }
+   else if (k === 'restaurant') { go5(); later(2000, () => { const a = $('app'); if (a) a.scrollTo({ top: a.scrollHeight, behavior: 'smooth' }); }); }
+   top();
+  }
+ };
+}
+
+async function mountMiniHud(el) {
+ const P = [['Rahul', '₹371'], ['Priya', '₹408'], ['You', '₹361']];
+ el.innerHTML = '<div class="mmhud"><div class="top"><span>Time left to pay</span><b>00:60</b></div><div class="rowz">' + P.map(([n, a]) => `<div class="pr"><span>${n}</span><em>${a}</em><i></i></div>`).join('') + '</div></div>';
+ const t = el.querySelector('.top b'), rows = [...el.querySelectorAll('.pr')], st = (r, txt, cls) => { const i = r.querySelector('i'); i.textContent = txt; i.className = cls || ''; };
+ const pad = (n) => String(n).padStart(2, '0');
+ do {
+  if (!el.isConnected) return;
+  rows.forEach((r) => { st(r, ''); r.classList.remove('miss'); });
+  for (let k = 0; k <= 60; k++) { const left = 60 - k; t.textContent = '00:' + pad(left); if (k === 14) st(rows[0], 'Paid ✓', 'ok'); if (k === 30) st(rows[1], 'Paid ✓', 'ok'); await _sleep(75); }
+  st(rows[2], 'Missed · owes ₹25', 'bad'); rows[2].classList.add('miss');
+  await _sleep(2600);
  } while (!_still());
 }
