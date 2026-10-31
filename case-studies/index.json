@@ -1,10 +1,107 @@
 [
   {
+    "slug": "huddle",
+    "title": "Huddle: group orders with a fair split",
+    "tag": "Feature proposal + prototype",
+    "summary": "A group order link where everyone picks and pays for their own items, so nobody chases friends for money.",
+    "mini": "hud",
+    "image": "",
+    "deck": "",
+    "links": [],
+    "metrics": [
+      {
+        "value": "1 link",
+        "label": "Everyone joins from WhatsApp"
+      },
+      {
+        "value": "Own bill",
+        "label": "Each person pays their share"
+      },
+      {
+        "value": "No-show",
+        "label": "Pays a fee share later"
+      }
+    ],
+    "story": {
+      "proto": "huddle",
+      "intro": "Ordering food for a group means one person pays and then chases everyone for money, and the bag arrives with nobody knowing whose item is whose. Huddle is a feature for food delivery apps that fixes both.",
+      "problemSub": "How group orders work today. See it in the app on the right.",
+      "solutionSub": "Tap a step, or watch it run. The app on the right is a working prototype.",
+      "capSolution": "A working prototype. Tap through it, and try other app colors below.",
+      "problemScreen": {
+        "head": "Team lunch",
+        "tag": "HOW IT WORKS TODAY",
+        "title": "One person pays for everyone",
+        "text": "Then asks the group for money.",
+        "stepsTitle": "What happens",
+        "steps": [
+          "Rahul orders lunch for three and pays the full bill.",
+          "He posts in the group: “send me your share”.",
+          "Priya pays. The third person says “later”.",
+          "The bag arrives with all the food mixed together. Nobody knows whose is whose."
+        ],
+        "loss": "<b>The host is out of pocket</b> and keeps chasing money. The restaurant has no idea who ordered what."
+      },
+      "problems": [
+        {
+          "title": "The host pays and chases",
+          "text": "One person pays the full bill, then asks everyone else for money."
+        },
+        {
+          "title": "Friends back out",
+          "text": "Someone says “later” or never pays, and the host is out of pocket."
+        },
+        {
+          "title": "Splitting charges is awkward",
+          "text": "Delivery fees and GST are split by hand, if at all."
+        },
+        {
+          "title": "A mixed-up bag",
+          "text": "Everything arrives together, so nobody knows whose item is whose."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "One link for the group",
+          "text": "The host shares a link. Everyone joins with their own name and number.",
+          "demo": "join"
+        },
+        {
+          "title": "Everyone picks their own items",
+          "text": "Each person sees their own total, with delivery and fees split equally. Anyone can leave the order.",
+          "demo": "order"
+        },
+        {
+          "title": "A pay timer",
+          "text": "The host starts a timer once everyone is in. The order goes through when all have paid.",
+          "demo": "timer"
+        },
+        {
+          "title": "No-shows pay their share later",
+          "text": "If someone doesn’t pay in time, the order goes ahead without them. They owe their share of the shared charges on their next order.",
+          "demo": "noshow"
+        },
+        {
+          "title": "Labels for every item",
+          "text": "The restaurant gets one order with each item tagged by name, and prints stickers for the packed items.",
+          "demo": "restaurant"
+        }
+      ],
+      "stepMs": [
+        4200,
+        4800,
+        5800,
+        6200,
+        6200
+      ]
+    }
+  },
+  {
     "slug": "refund-window",
     "title": "A 24-hour refund window for clothing returns",
     "tag": "Product concept + prototype",
     "summary": "A return policy that stops use-and-return abuse without punishing honest customers.",
-    "deck": "case-studies/refund-window/return-policy-deck-v3.pdf",
+    "deck": "",
     "links": [],
     "metrics": [
       {
