@@ -8,9 +8,9 @@ const nav = (S) => `<nav><a class="brand" href="#top">${esc(S.name)}</a><ul><li>
 const shot = (c) => (c.image ? `<div class="shot"><img src="${esc(c.image)}" alt="${esc(c.title)}"></div>` : '');
 const ext = (v) => v && /^https?:/.test(v);
 
-function card(c, feat) {
+function card(c, feat, wide) {
   const m = feat && c.metrics ? '<div class="metrics">' + c.metrics.map((x) => `<div><b>${esc(x.value)}</b><span>${esc(x.label)}</span></div>`).join('') + '</div>' : '';
-  return `<a class="tile${feat ? ' feat' : ''}" href="#${esc(c.slug)}"><span class="tag">${esc(c.tag)}</span><h3>${esc(c.title)}</h3><p>${esc(c.summary)}</p>${c.mini === 'wave' ? '<canvas class="mini" aria-hidden="true"></canvas>' : c.mini ? `<div class="mm" data-m="${esc(c.mini)}" aria-hidden="true"></div>` : shot(c)}${m}<span class="go">${feat ? 'Open the case study' : 'View'} →</span></a>`;
+  return `<a class="tile${feat ? ' feat' : ''}${wide ? ' wide' : ''}" href="#${esc(c.slug)}"><span class="tag">${esc(c.tag)}</span><h3>${esc(c.title)}</h3><p>${esc(c.summary)}</p>${c.mini === 'wave' ? '<canvas class="mini" aria-hidden="true"></canvas>' : c.mini ? `<div class="mm" data-m="${esc(c.mini)}" aria-hidden="true"></div>` : shot(c)}${m}<span class="go">${feat ? 'Open the case study' : 'View'} →</span></a>`;
 }
 
 function home(S, list) {
@@ -21,7 +21,7 @@ function home(S, list) {
 <p class="role">${esc(S.role)}</p><h1>${esc(S.headline)}</h1><p class="intro">${esc(S.intro)}</p>
 <div class="btns"><a class="btn main" href="#work">View case studies</a>${L.resume && !window.PREVIEW ? `<a class="btn" href="${esc(L.resume)}">Download resume</a>` : ''}<a class="btn" href="#contact">Get in touch</a></div></div></header>
 <div class="stats">${(S.stats || []).map((x) => `<div class="stat"><b>${esc(x.value)}</b><span>${esc(x.label)}</span></div>`).join('')}</div>
-<main id="work"><h2 class="sec">Case studies</h2><div class="grid">${list.map((c, i) => card(c, i === 0)).join('')}<div class="tile process"><h3>How I work</h3><ol>${steps.map((x, i) => `<li>${i + 1}. ${x}</li>`).join('')}</ol></div></div></main>
+<main id="work"><h2 class="sec">Case studies</h2><div class="grid">${list.map((c, i) => card(c, i === 0, i > 0 && i === list.length - 1 && (list.length - 1) % 2 === 1)).join('')}<div class="tile process"><h3>How I work</h3><ol>${steps.map((x, i) => `<li>${i + 1}. ${x}</li>`).join('')}</ol></div></div></main>
 <section class="block" id="experience"><h2 class="sec">Experience</h2><div class="tl">${(S.experience || []).map((x) => `<div class="xp"><div><h3>${esc(x.role)}</h3><small>${esc(x.org)}${x.when ? ' · ' + esc(x.when) : ''}</small></div><ul>${x.points.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>`).join('')}</div></section>
 ${(S.certificates || []).length ? `<section class="block" id="certs"><h2 class="sec">Certificates</h2><div class="certs">${S.certificates.map((c) => `<div class="cert"><b>${esc(c.name)}</b><span>${esc(c.issuer)} · ${esc(c.year)}</span>${c.url && (!window.PREVIEW || ext(c.url)) ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">View certificate →</a>` : ''}</div>`).join('')}</div></section>` : ''}
 <section class="about" id="about"><h2 class="sec">About me</h2><div><p>${esc(S.about)}</p><ul class="chips">${(S.skills || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div></section>
@@ -34,14 +34,19 @@ async function casePage(S, c) {
   document.title = c.title + ' | ' + S.name;
   const md = marked.parse(await (await load(`case-studies/${c.slug}/case.md`)).text());
   const links = (c.links || []).filter((l) => !window.PREVIEW || ext(l.url));
+  const deck = c.deck && !window.PREVIEW ? c.deck : '';
+  if (deck && c.story) links.unshift({ label: 'Open the presentation (PDF)', url: deck });
   const ul = `<ul class="links">${links.map((l) => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} →</a></li>`).join('')}</ul>`;
   if (!c.story) return nav(S) + `<article class="case"><a class="back" href="#work">← Back</a><p class="tag">${esc(c.tag)}</p><h1>${esc(c.title)}</h1>${shot(c)}${c.deck ? `<iframe src="${esc(c.deck)}" title="Case study deck"></iframe>` : ''}${ul}${md}</article>`;
   const st = c.story, echo = st.panel === 'echo';
+  const ctl = st.proto === 'huddle'
+    ? '<div class="dctl" id="dctl" hidden><b>Try it as</b>' + ['Zomato', 'Swiggy', 'Zepto', 'Blinkit', 'Any app'].map((b, i) => `<button data-brand="${b}"${i ? '' : ' class="on"'}>${b}</button>`).join('') + '</div>'
+    : `<div class="dctl" id="dctl" hidden><b>Demo controls</b><button data-demo2="fresh">Just delivered (24h left)</button><button data-demo2="min">1 minute left</button><button data-demo2="expired">Window expired</button><button data-demo2="restart">Restart</button></div>`;
   const right = st.panel === 'gh'
     ? `<div class="ghwrap"><div class="sc ghs" id="ghp"></div><p class="cap" id="cap">${esc(st.capProblem)}</p></div>`
     : echo
     ? `<div class="ewrap"><div id="ep"></div><p class="cap" id="cap">${esc(st.capProblem)}</p></div>`
-    : `<div class="pwrap"><div class="pframe"><div class="pslot"><div id="pb"></div><div id="ps" hidden></div></div></div><p class="cap" id="cap">The problem, as a user sees it</p><div class="dctl" id="dctl" hidden><b>Demo controls</b><button data-demo2="fresh">Just delivered (24h left)</button><button data-demo2="min">1 minute left</button><button data-demo2="expired">Window expired</button><button data-demo2="restart">Restart</button></div></div>`;
+    : `<div class="pwrap"><div class="pframe"><div class="pslot"><div id="pb"></div><div id="ps" hidden></div></div></div><p class="cap" id="cap">The problem, as a user sees it</p>${ctl}</div>`;
   const item = (s, i) => s.demo
     ? `<li><button class="sitem${i ? '' : ' on'}" data-demo="${esc(s.demo)}"><span class="n">${i + 1}</span><div><b>${esc(s.title)}</b><span class="t">${esc(s.text)}</span></div></button></li>`
     : `<li class="pitem"><span class="n">${i + 1}</span><div><b>${esc(s.title)}</b><span class="t">${esc(s.text)}</span></div></li>`;
@@ -54,14 +59,14 @@ async function casePage(S, c) {
 <ul class="slist">${st.solutions.map(item).join('')}</ul>
 <button class="btn" data-view="problem">← Back to the problem</button>${ul}</div></div>
 <div class="s-right">${right}</div></section>
-<section class="full-write wrap-md"><div class="case" style="padding:0">${md}</div></section>`;
+${deck ? `<section class="deckbox"><h2>Presentation</h2><iframe src="${esc(deck)}" title="Presentation"></iframe><p><a class="btn" href="${esc(deck)}" target="_blank" rel="noopener">Open the presentation →</a></p></section>` : ''}<section class="full-write wrap-md"><div class="case" style="padding:0">${md}</div></section>`;
 }
 
 function initStory(c) {
   const st = c.story, echo = st.panel === 'echo', gh = st.panel === 'gh', live = echo || gh;
   const root = document.querySelector('.story');
   let api = null, scene = false, timer = null, pauseUntil = 0;
-  if (echo) api = mountEcho($('#ep'), st.url); else if (gh) api = mountGh($('#ghp')); else mountProblem($('#pb'));
+  if (echo) api = mountEcho($('#ep'), st.url); else if (gh) api = mountGh($('#ghp')); else mountProblem($('#pb'), st.problemScreen);
   const idle = echo ? 'noisy' : 'problem';
   const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
   const toView = () => { if (matchMedia('(max-width:980px)').matches) $(echo ? '.ewrap' : gh ? '.ghwrap' : '.pwrap').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); };
@@ -90,14 +95,15 @@ function initStory(c) {
     else {
       $('#pb').hidden = sol; $('#ps').hidden = !sol; $('#dctl').hidden = !sol;
       $('#cap').textContent = sol ? 'Interactive prototype: tap through it' : 'The problem, as a user sees it';
-      if (sol) { if (!api) api = mountPrototype($('#ps')); if (st.scene && !scene) { scene = true; mountTracker($('#scene')); } }
+      if (sol) { if (!api) api = st.proto === 'huddle' ? mountHuddle($('#ps')) : mountPrototype($('#ps')); if (st.scene && !scene) { scene = true; mountTracker($('#scene')); } }
     }
     if (sol) { activate(0); play(0); } else { stop(); if (live) api.demo(idle); }
     toView();
   };
   root.addEventListener('pointerdown', (e) => { if (e.target.closest('.pframe')) pauseUntil = Date.now() + 10000; });
   root.addEventListener('click', (e) => {
-    const v = e.target.closest('[data-view]'), d = e.target.closest('[data-demo]'), d2 = e.target.closest('[data-demo2]');
+    const v = e.target.closest('[data-view]'), d = e.target.closest('[data-demo]'), d2 = e.target.closest('[data-demo2]'), br = e.target.closest('[data-brand]');
+    if (br) { pauseUntil = Date.now() + 10000; root.querySelectorAll('[data-brand]').forEach((x) => x.classList.toggle('on', x === br)); api.brand(br.dataset.brand); }
     if (d2) { pauseUntil = Date.now() + 10000; items().forEach((b) => b.classList.remove('on', 'auto')); api.demo(d2.dataset.demo2); }
     if (v) set(v.dataset.view);
     if (d) { const i = items().indexOf(d); activate(i); play(i); toView(); }
@@ -115,7 +121,7 @@ async function render() {
     const cv = document.querySelector('.hero canvas');
     if (cv) brain(cv, KN, SITE.skills);
     document.querySelectorAll('canvas.mini').forEach(mountMiniWave);
-    document.querySelectorAll('.mm').forEach((el) => ({ gh: mountMiniGh2, ret: mountMiniRet2 })[el.dataset.m](el));
+    document.querySelectorAll('.mm').forEach((el) => ({ gh: mountMiniGh2, ret: mountMiniRet2, hud: mountMiniHud })[el.dataset.m](el));
     if (h) document.getElementById(h)?.scrollIntoView(); else window.scrollTo(0, 0);
   }
 }
