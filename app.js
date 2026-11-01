@@ -40,7 +40,7 @@ async function casePage(S, c) {
   if (!c.story) return nav(S) + `<article class="case"><a class="back" href="#work">← Back</a><p class="tag">${esc(c.tag)}</p><h1>${esc(c.title)}</h1>${shot(c)}${c.deck ? `<iframe src="${esc(c.deck)}" title="Case study deck"></iframe>` : ''}${ul}${md}</article>`;
   const st = c.story, echo = st.panel === 'echo';
   const ctl = st.proto === 'huddle'
-    ? '<div class="dctl" id="dctl" hidden><b>Try it as</b>' + ['Zomato', 'Swiggy', 'Zepto', 'Blinkit', 'Any app'].map((b, i) => `<button data-brand="${b}"${i ? '' : ' class="on"'}>${b}</button>`).join('') + '</div>'
+    ? '<div class="dctl" id="dctl" hidden><b>Brand color</b>' + ['Navy', 'Red', 'Orange', 'Purple', 'Green'].map((b, i) => `<button data-brand="${b}"${i ? '' : ' class="on"'}>${b}</button>`).join('') + '</div>'
     : `<div class="dctl" id="dctl" hidden><b>Demo controls</b><button data-demo2="fresh">Just delivered (24h left)</button><button data-demo2="min">1 minute left</button><button data-demo2="expired">Window expired</button><button data-demo2="restart">Restart</button></div>`;
   const right = st.panel === 'gh'
     ? `<div class="ghwrap"><div class="sc ghs" id="ghp"></div><p class="cap" id="cap">${esc(st.capProblem)}</p></div>`
