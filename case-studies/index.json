@@ -3,15 +3,15 @@
     "slug": "huddle",
     "title": "Huddle: group orders with a fair split",
     "tag": "Feature proposal + prototype",
-    "summary": "A group order link where everyone picks and pays for their own items, so nobody chases friends for money.",
+    "summary": "Split payment on top of group orders: everyone pays their own share, so nobody chases friends for money.",
     "mini": "hud",
     "image": "",
     "deck": "",
     "links": [],
     "metrics": [
       {
-        "value": "1 link",
-        "label": "Everyone joins from WhatsApp"
+        "value": "3 ways",
+        "label": "To split: host, own items, equal"
       },
       {
         "value": "Own bill",
@@ -24,18 +24,19 @@
     ],
     "story": {
       "proto": "huddle",
-      "intro": "Ordering food for a group means one person pays and then chases everyone for money, and the bag arrives with nobody knowing whose item is whose. Huddle is a feature for food delivery apps that fixes both.",
+      "intro": "Food delivery apps already have a group order option, but the host pays for the whole order and then chases everyone for money. Huddle adds split payment on top, so everyone pays their own share inside the app.",
       "problemSub": "How group orders work today. See it in the app on the right.",
       "solutionSub": "Tap a step, or watch it run. The app on the right is a working prototype.",
-      "capSolution": "A working prototype. Tap through it, and try other app colors below.",
+      "capSolution": "A working prototype. Tap through it, and try other brand colors below.",
       "problemScreen": {
         "head": "Team lunch",
-        "tag": "HOW IT WORKS TODAY",
-        "title": "One person pays for everyone",
+        "tag": "HOW GROUP ORDERS WORK TODAY",
+        "title": "The host pays the whole bill",
         "text": "Then asks the group for money.",
         "stepsTitle": "What happens",
         "steps": [
-          "Rahul orders lunch for three and pays the full bill.",
+          "Rahul starts a group order, and everyone adds their food.",
+          "He pays the full bill himself.",
           "He posts in the group: “send me your share”.",
           "Priya pays. The third person says “later”.",
           "The bag arrives with all the food mixed together. Nobody knows whose is whose."
@@ -44,12 +45,12 @@
       },
       "problems": [
         {
-          "title": "The host pays and chases",
-          "text": "One person pays the full bill, then asks everyone else for money."
+          "title": "The host pays for everyone",
+          "text": "A group order today means one person pays the whole bill."
         },
         {
-          "title": "Friends back out",
-          "text": "Someone says “later” or never pays, and the host is out of pocket."
+          "title": "Then the host chases the others",
+          "text": "They ask for money in the group chat, and some friends pay late or never."
         },
         {
           "title": "Splitting charges is awkward",
@@ -63,8 +64,13 @@
       "solutions": [
         {
           "title": "One link for the group",
-          "text": "The host shares a link. Everyone joins with their own name and number.",
+          "text": "Huddle sits on top of the group order. The host shares a link, and everyone joins with their own name and number.",
           "demo": "join"
+        },
+        {
+          "title": "Choose how to split",
+          "text": "The host picks: I pay for everyone, everyone pays their own items, or split the total equally.",
+          "demo": "split"
         },
         {
           "title": "Everyone picks their own items",
@@ -89,6 +95,7 @@
       ],
       "stepMs": [
         4200,
+        7200,
         4800,
         5800,
         6200,
