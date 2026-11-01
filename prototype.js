@@ -210,7 +210,7 @@ async function mountMiniRet2(el) {
  } while (!_still());
 }
 
-const HUD_CSS = ":host{--bg:#fff;--fg:#161616;--mut:#595959;--card:#F4F1EC;--line:#E0DAD2;--rt:#C8202F;--grn:#1A7F43;--pb:#161616;--pf:#fff;--brand:#C8202F;display:block;height:100%;color:var(--fg);font:16px/1.4 'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}*{box-sizing:border-box}.hs{position:relative;height:100%;background:var(--brand)}.sb{display:flex;position:absolute;top:0;left:0;right:0;height:44px;padding:14px 28px 0;justify-content:space-between;background:var(--brand);color:#fff;font-size:14px;font-weight:700;z-index:2;pointer-events:none}#app{height:100%;overflow-y:auto;padding-top:44px;display:flex;flex-direction:column;scrollbar-width:none}#app::-webkit-scrollbar{display:none}.top{color:#fff;padding:22px 22px 24px}.eyebrow{font-size:15px;font-weight:500}.mid{font-size:32px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin:6px 0 16px}.big{font-size:80px;font-weight:700;line-height:1;letter-spacing:-4px;margin:6px 0 10px}.sub{font-size:14px;margin-bottom:14px}\n.segs{display:flex;gap:8px}.segs span{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.35)}.segs .on{background:#fff}\n.sheet{flex:1 0 auto;background:var(--bg);border-radius:28px 28px 0 0;padding:22px 20px 40px}\nh3{margin:18px 0 8px;font-size:17px}\n.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:none;color:var(--fg);padding:8px 14px;border-radius:999px;font:500 14px \"Space Grotesk\",sans-serif}.chip.on{background:var(--pb);color:var(--pf);border-color:var(--pb)}\n.mut,small{color:var(--mut)}\n.row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.g{flex:1}\n.dot{width:14px;height:14px;border:2px solid;border-radius:3px;position:relative;flex:none}.dot:after{content:\"\";position:absolute;inset:2px;border-radius:50%;background:currentColor}.dot.v{color:var(--grn)}.dot.n{color:var(--rt)}\n.q{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--fg);font-size:18px}\n.card{background:var(--card);border-radius:16px;padding:14px;margin:10px 0}.warn{border:2px solid var(--rt)}\n.btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font:700 16px \"Space Grotesk\",sans-serif;min-height:48px}\n.btn.pri{background:var(--pb);border-color:var(--pb);color:var(--pf)}.btn.s{display:inline-block;width:auto;padding:8px 20px;margin:6px 0 0 8px;min-height:40px}.btn:disabled{opacity:.4}.btn.ol{color:var(--rt);border-color:var(--rt)}\n.lnk{background:none;border:0;color:var(--mut);text-decoration:underline;padding:10px 0;font:14px \"Space Grotesk\",sans-serif}\n.ok{color:var(--grn);font-weight:700}\ninput{width:100%;box-sizing:border-box;padding:13px;margin:5px 0;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--fg);font:16px \"Space Grotesk\",sans-serif}.err{color:var(--rt);font-size:13px;min-height:16px}.dim{opacity:.55}\n.stk{display:inline-block;border:3px dashed var(--fg);border-radius:10px;padding:8px 10px;margin:4px 6px 4px 0;font-size:13px;min-width:130px}.stk b{display:block}\n.bill div{display:flex;justify-content:space-between;padding:2px 0}\n.top{flex:none}\n\n.sheet{padding-bottom:56px}.tagp{background:var(--card);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}";
+const HUD_CSS = ":host{--bg:#fff;--fg:#161616;--mut:#595959;--card:#F4F1EC;--line:#E0DAD2;--rt:#C8202F;--grn:#1A7F43;--pb:#161616;--pf:#fff;--brand:#1F2A44;display:block;height:100%;color:var(--fg);font:16px/1.4 'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}*{box-sizing:border-box}.hs{position:relative;height:100%;background:var(--brand)}.sb{display:flex;position:absolute;top:0;left:0;right:0;height:44px;padding:14px 28px 0;justify-content:space-between;background:var(--brand);color:#fff;font-size:14px;font-weight:700;z-index:2;pointer-events:none}#app{height:100%;overflow-y:auto;padding-top:44px;display:flex;flex-direction:column;scrollbar-width:none}#app::-webkit-scrollbar{display:none}.top{color:#fff;padding:22px 22px 24px}.eyebrow{font-size:15px;font-weight:500}.mid{font-size:32px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin:6px 0 16px}.big{font-size:80px;font-weight:700;line-height:1;letter-spacing:-4px;margin:6px 0 10px}.sub{font-size:14px;margin-bottom:14px}\n.segs{display:flex;gap:8px}.segs span{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.35)}.segs .on{background:#fff}\n.sheet{flex:1 0 auto;background:var(--bg);border-radius:28px 28px 0 0;padding:22px 20px 40px}\nh3{margin:18px 0 8px;font-size:17px}\n.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:none;color:var(--fg);padding:8px 14px;border-radius:999px;font:500 14px \"Space Grotesk\",sans-serif}.chip.on{background:var(--pb);color:var(--pf);border-color:var(--pb)}\n.mut,small{color:var(--mut)}\n.row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.g{flex:1}\n.dot{width:14px;height:14px;border:2px solid;border-radius:3px;position:relative;flex:none}.dot:after{content:\"\";position:absolute;inset:2px;border-radius:50%;background:currentColor}.dot.v{color:var(--grn)}.dot.n{color:var(--rt)}\n.q{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--fg);font-size:18px}\n.card{background:var(--card);border-radius:16px;padding:14px;margin:10px 0}.warn{border:2px solid var(--rt)}\n.btn{display:block;width:100%;padding:14px;margin:8px 0;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font:700 16px \"Space Grotesk\",sans-serif;min-height:48px}\n.btn.pri{background:var(--pb);border-color:var(--pb);color:var(--pf)}.btn.s{display:inline-block;width:auto;padding:8px 20px;margin:6px 0 0 8px;min-height:40px}.btn:disabled{opacity:.4}.btn.ol{color:var(--rt);border-color:var(--rt)}\n.lnk{background:none;border:0;color:var(--mut);text-decoration:underline;padding:10px 0;font:14px \"Space Grotesk\",sans-serif}\n.ok{color:var(--grn);font-weight:700}\ninput{width:100%;box-sizing:border-box;padding:13px;margin:5px 0;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--fg);font:16px \"Space Grotesk\",sans-serif}.err{color:var(--rt);font-size:13px;min-height:16px}.dim{opacity:.55}\n.stk{display:inline-block;border:3px dashed var(--fg);border-radius:10px;padding:8px 10px;margin:4px 6px 4px 0;font-size:13px;min-width:130px}.stk b{display:block}\n.bill div{display:flex;justify-content:space-between;padding:2px 0}\n.top{flex:none}\n\n.sheet{padding-bottom:56px}.tagp{background:var(--card);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}";
 
 function mountHuddle(host) {
  const root = host.attachShadow({ mode: 'open' });
@@ -220,9 +220,10 @@ function mountHuddle(host) {
 
 const MENU=[{id:"pbm",n:"Paneer Butter Masala",p:240,v:1},{id:"dal",n:"Dal Makhani",p:200,v:1},{id:"bc",n:"Butter Chicken",p:320,v:0},{id:"bir",n:"Chicken Biryani",p:280,v:0},{id:"naan",n:"Tandoori Naan",p:45,v:1},{id:"jr",n:"Jeera Rice",p:120,v:1}];
 const FEES=(40+8+15)*1.18;
+const MODES={host:"I pay for everyone",own:"Everyone pays their own items",equal:"Split the total equally"};
 const SAMPLES=[{pbm:1,naan:2},{bc:1,naan:1},{dal:1,jr:1}];
-let S,BRAND="Zomato";const BRANDS={"Zomato":"#C8202F","Swiggy":"#B84E00","Zepto":"#5B2A9E","Blinkit":"#0C831F","Any app":"#1F2A44"};
-function init(){clearInterval(S&&S.timer);S={step:"join",mem:[],as:null,inn:{},cart:{},paid:{},left:60,timer:null,noshow:[],err:""}}
+let S,BRAND="Navy";const BRANDS={"Red":"#C8202F","Orange":"#B84E00","Purple":"#5B2A9E","Green":"#0C831F","Navy":"#1F2A44"};
+function init(){clearInterval(S&&S.timer);S={step:"join",mode:"own",mem:[],as:null,inn:{},cart:{},paid:{},left:60,timer:null,noshow:[],err:""}}
 init();
 const act=()=>S.mem.filter(m=>!m.out);
 const SHARE=()=>FEES/Math.max(1,act().length);
@@ -230,7 +231,8 @@ const dish=k=>MENU.find(m=>m.id==k);
 const nm=id=>S.mem.find(m=>m.id==id).n;
 const mask=p=>p.slice(0,2)+"••••••"+p.slice(-2);
 const sub=id=>Object.entries(S.cart[id]||{}).reduce((s,[k,q])=>s+dish(k).p*q,0);
-const tot=id=>sub(id)*1.05+SHARE();
+const all=()=>act().reduce((x,m)=>x+sub(m.id)*1.05,0)+FEES;
+const tot=id=>S.mode=="host"?(id==S.mem[0].id?all():0):S.mode=="equal"?all()/act().length:sub(id)*1.05+SHARE();
 const fm=x=>"₹"+x.toFixed(2);
 function addM(n,ph){const id="m"+S.mem.length+Date.now();S.mem.push({id,n,ph,out:0});S.cart[id]={};return id}
 function join(){const n=$("nm").value.trim(),ph=$("ph").value.trim();
@@ -241,12 +243,13 @@ function add(id,k,d){const c=S.cart[id];c[k]=Math.max(0,(c[k]||0)+d);if(!c[k])de
 function leave(id){const m=S.mem.find(x=>x.id==id);m.out=1;S.cart[id]={};delete S.inn[id];R()}
 function rejoin(id){S.mem.find(x=>x.id==id).out=0;R()}
 function demo(){act().forEach((m,i)=>{S.cart[m.id]={...SAMPLES[i%3]};S.inn[m.id]=1});R()}
-function start(){S.step="pay";S.left=60;S.timer=setInterval(()=>{if(!host.isConnected){clearInterval(S.timer);return}S.left--;if(S.left<=0)expire();else R()},1000);R()}
+function start(){S.step="pay";S.left=60;if(S.mode=="host")act().slice(1).forEach(m=>S.paid[m.id]=1);S.timer=setInterval(()=>{if(!host.isConnected){clearInterval(S.timer);return}S.left--;if(S.left<=0)expire();else R()},1000);R()}
 function pay(id){S.paid[id]=1;if(act().every(m=>S.paid[m.id])){clearInterval(S.timer);S.step="labels"}R()}
 function expire(){clearInterval(S.timer);S.noshow=act().filter(m=>!S.paid[m.id]);S.as=(act().find(m=>S.paid[m.id])||act()[0]).id;S.step="labels";R()}
 function vJoin(){
- let h=`<div class="card"><small>Invite link (share it on WhatsApp)</small><br><b>huddle.link/x7Kp2</b></div><h3>${S.mem.length?"Join with your details":"Create the group as host"}</h3><p class="mut">In the real app your name and number come from your Zomato account. Here you type them.</p><input id="nm" placeholder="Name"><input id="ph" placeholder="Phone number" inputmode="numeric" maxlength="10"><div class="err">${S.err}</div><button class="btn pri" onclick="with(HUD){join()}">${S.mem.length?"Join group":"Create group"}</button>`;
+ let h=`<div class="card"><small>Invite link (share it on WhatsApp)</small><br><b>huddle.link/x7Kp2</b></div><h3>${S.mem.length?"Join with your details":"Create the group as host"}</h3><p class="mut">In the real app your name and number come from your account. Here you type them.</p><input id="nm" placeholder="Name"><input id="ph" placeholder="Phone number" inputmode="numeric" maxlength="10"><div class="err">${S.err}</div><button class="btn pri" onclick="with(HUD){join()}">${S.mem.length?"Join group":"Create group"}</button>`;
  if(S.mem.length)h+=`<h3>In this group</h3>`+S.mem.map((m,i)=>`<div class="row"><div class="g">${m.n}${i?"":" (host)"}<br><small>${mask(m.ph)}</small></div></div>`).join("");
+ h+=`<h3>Who pays?</h3><div class="chips">${Object.keys(MODES).map(k=>`<button class="chip ${k==S.mode?"on":""}" onclick="with(HUD){S.mode='${k}';R()}">${MODES[k]}</button>`).join("")}</div>`;
  return h+`<button class="lnk" onclick="with(HUD){addDemo()}">Add Rahul and Priya for the demo</button><button class="btn" ${S.mem.length>1?"":"disabled"} onclick="with(HUD){S.step='order';S.as=S.mem[0].id;R()}">Continue to order</button>`}
 function vOrder(){
  const id=S.as,m=S.mem.find(x=>x.id==id),c=S.cart[id],lock=S.inn[id];
@@ -254,13 +257,13 @@ function vOrder(){
  if(m.out)return h+`<div class="card">${m.n} left this group order and won’t pay anything. Fees are split among the ${act().length} people still in.</div><button class="btn" onclick="with(HUD){rejoin('${id}')}">Rejoin the group</button>`;
  h+=`<p class="mut">Viewing as ${m.n}. Pick your own items.</p>`;
  MENU.forEach(d=>{const q=c[d.id]||0;h+=`<div class="row"><span class="dot ${d.v?"v":"n"}"></span><div class="g">${d.n}<br><small>₹${d.p}</small></div>${lock?"":`<button class="q" onclick="with(HUD){add('${id}','${d.id}',-1)}">−</button>`}<b>${q}</b>${lock?"":`<button class="q" onclick="with(HUD){add('${id}','${d.id}',1)}">+</button>`}</div>`});
- h+=`<div class="card">Your total: <b>${fm(tot(id))}</b><br><small>${fm(sub(id))} items + 5% GST + ${fm(SHARE())} equal share of delivery and fees (${act().length} people)</small></div>`;
+ h+=`<div class="card">Your total: <b>${fm(tot(id))}</b><br><small>${S.mode=="own"?fm(sub(id))+" items + 5% GST + "+fm(SHARE())+" equal share of delivery and fees ("+act().length+" people)":MODES[S.mode]}</small></div>`;
  h+=`<button class="btn" ${sub(id)==0||lock?"disabled":""} onclick="with(HUD){S.inn['${id}']=1;R()}">${lock?"You’re in ✓":"I’m in"}</button><button class="btn ol" onclick="with(HUD){leave('${id}')}">Not ordering? Leave group</button>`;
  const ok=act().length>1&&act().every(x=>S.inn[x.id]);
  return h+`<button class="btn pri" ${ok?"":"disabled"} onclick="with(HUD){start()}">Start pay timer</button><button class="lnk" onclick="with(HUD){demo()}">Fill sample orders for everyone in</button>`}
 function vPay(){
  let h=`<p class="mut">The order is placed only when everyone has paid. Leaving is closed now, so skipping payment counts as a no-show. Demo timer is 60 seconds.</p>`;
- act().forEach(m=>{h+=`<div class="card"><b>${m.n}</b> <small>${mask(m.ph)}</small> ${S.paid[m.id]?'<span class="ok">Paid ✓</span>':""}<br><small>Items ${fm(sub(m.id))} · GST ${fm(sub(m.id)*.05)} · Shared fees ${fm(SHARE())}</small><br><b>${fm(tot(m.id))}</b>${S.paid[m.id]?"":`<button class="btn s" onclick="with(HUD){pay('${m.id}')}">Pay</button>`}</div>`});
+ act().forEach(m=>{h+=`<div class="card"><b>${m.n}</b> <small>${mask(m.ph)}</small> ${S.paid[m.id]?'<span class="ok">Paid ✓</span>':""}<br><small>${S.mode=="own"?"Items "+fm(sub(m.id))+" · GST "+fm(sub(m.id)*.05)+" · Shared fees "+fm(SHARE()):MODES[S.mode]}</small><br><b>${fm(tot(m.id))}</b>${S.paid[m.id]?"":`<button class="btn s" onclick="with(HUD){pay('${m.id}')}">Pay</button>`}</div>`});
  return h+`<button class="lnk" onclick="with(HUD){expire()}">Skip ahead: let the timer run out</button>`}
 function vMissed(id){const cl=S.fp&&S.fp[id];return `<div class="card warn"><b>You missed the pay window</b><p class="mut">The order went ahead without your items, so nothing else is charged. You owe ${fm(SHARE())} for your share of delivery and fees. It is saved to your account and added to your next order.</p></div>${cl?'<p class="ok">Fee paid ✓</p>':`<button class="btn pri" onclick="with(HUD){S.fp=S.fp||{};S.fp['${id}']=1;R()}">Pay ${fm(SHARE())} now</button>`}`}
 function vLabels(){
@@ -270,7 +273,7 @@ function vLabels(){
  let h=`<div class="chips">${act().map(m=>`<button class="chip ${m.id==S.as?"on":""}" onclick="with(HUD){S.as='${m.id}';R()}">${m.n}${S.paid[m.id]?"":" (missed)"}</button>`).join("")}</div><p class="mut">Viewing as ${nm(S.as)}.</p>`;
  if(!S.paid[S.as])return h+vMissed(S.as);
  const id=S.as,it=sub(id);
- h+=`<h3>Your bill</h3><div class="card bill">${Object.entries(S.cart[id]).map(([k,q])=>`<div><span>${dish(k).n}${q>1?" ×"+q:""}</span><span>${fm(dish(k).p*q)}</span></div>`).join("")}<div><span>GST on items (5%)</span><span>${fm(it*.05)}</span></div><div><span>Your share of delivery and fees</span><span>${fm(SHARE())}</span></div><div><b>Paid</b><b>${fm(tot(id))}</b></div></div><p class="ok">Order confirmed. Your items are in the group order.</p>`;
+ h+=`<h3>Your bill</h3><div class="card bill">${Object.entries(S.cart[id]).map(([k,q])=>`<div><span>${dish(k).n}${q>1?" ×"+q:""}</span><span>${fm(dish(k).p*q)}</span></div>`).join("")}<div><span>GST on items (5%)</span><span>${fm(it*.05)}</span></div><div><span>Your share of delivery and fees</span><span>${fm(SHARE())}</span></div>${Math.abs(tot(id)-(it*1.05+SHARE()))>.005?`<div><span>Group split adjustment</span><span>${fm(tot(id)-(it*1.05+SHARE()))}</span></div>`:""}<div><b>Paid</b><b>${fm(tot(id))}</b></div></div><p class="ok">Order confirmed. Your items are in the group order.</p>`;
  return h+`<button class="btn pri" onclick="with(HUD){S.step='rest';R()}">See what the restaurant received</button><button class="btn" onclick="with(HUD){init();R()}">Start over</button>`}
 function vRest(){
  const ps=act().filter(m=>S.paid[m.id]),rows=[];
@@ -285,7 +288,7 @@ function T(x){return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).p
 function R(){
  host.style.setProperty("--brand",BRANDS[BRAND]);
  const keys=["join","order","pay","labels","rest"],i=keys.indexOf(S.step);
- const H={join:["Huddle on "+BRAND,"Join the huddle"],order:["Step 2 of 4","Pick your own food"],pay:["Time left to pay",""],labels:["Order placed","Your bill"],rest:["Restaurant view","Order received"]}[S.step];
+ const H={join:["Huddle","Start a huddle"],order:["Step 2 of 4","Pick your own food"],pay:["Time left to pay",""],labels:["Order placed","Your bill"],rest:["Restaurant view","Order received"]}[S.step];
  const n=act().filter(m=>S.paid[m.id]).length;
  const big=S.step=="pay"?`<div class="big">${T(S.left)}</div><div class="sub">${n} of ${act().length} paid. The order goes through when all pay.</div>`:`<div class="mid">${H[1]}</div>`;
  $("app").innerHTML=`<div class="top"><div class="eyebrow">${H[0]}</div>${big}<div class="segs">${keys.map((k,j)=>`<span class="${j<=i?"on":""}"></span>`).join("")}</div></div><div class="sheet">`+(S.step=="join"?vJoin():S.step=="order"?vOrder():S.step=="pay"?vPay():S.step=="rest"?vRest():vLabels())+`</div>`;C()}
@@ -302,6 +305,7 @@ function setTheme(){}
  let seq = 0;
  const later = (ms, fn) => { const my = seq; setTimeout(() => { if (my === seq && host.isConnected) fn(); }, ms); };
  const top = () => { const a = $('app'); if (a) a.scrollTop = 0; };
+ const down = () => { const a = $('app'); if (a) a.scrollTo({ top: a.scrollHeight, behavior: 'smooth' }); };
  R();
  return {
   brand(b) { BRAND = b; R(); },
@@ -309,11 +313,12 @@ function setTheme(){}
    seq++;
    init();
    if (k === 'join') { R(); later(1000, () => { addM('You', '9812345670'); R(); }); later(2200, () => { addDemo(); R(); }); }
+   else if (k === 'split') { R(); later(400, () => { addM('You', '9812345670'); addDemo(); R(); }); later(1300, down); later(2200, () => { S.mode = 'host'; R(); down(); }); later(3700, () => { S.mode = 'equal'; R(); down(); }); later(5200, () => { S.mode = 'own'; R(); down(); }); }
    else if (k === 'order') { go1(); }
    else if (k === 'timer') { go2(); later(1800, () => pay(act()[0].id)); later(3400, () => pay(act()[1].id)); }
    else if (k === 'noshow') { go4(); later(2200, () => { const m = S.noshow[0]; if (m) { S.as = m.id; R(); } }); }
-   else if (k === 'restaurant') { go5(); later(2000, () => { const a = $('app'); if (a) a.scrollTo({ top: a.scrollHeight, behavior: 'smooth' }); }); }
-   top();
+   else if (k === 'restaurant') { go5(); later(2000, down); }
+   if (k !== 'split') top();
   }
  };
 }
